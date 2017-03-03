@@ -16,10 +16,24 @@ require 'json'
 
 module PuppetX
   module PuppetVagrant
-    VAGRANT_DIR     = "/usr/local/lib/vagrant"
+    VAGRANT_DIR     = "/usr"
     VAGRANT_VM_DIR  = "/var/lib/vagrant_vms"
 
     class Instance
+      def configured?
+        configured = false
+        if Dir.exists? (vm_instance_dir) and File.exists?(configfile) and File.exists?(vagrantfile)
+
+          json = File.read('Vagrantfile.json')
+          have_config = JSON.parse(json)
+
+          if have_config == @config
+            configured = true
+          end
+        end
+        configured
+      end
+
       def initialize(
           name,
           box           = false,
@@ -27,23 +41,33 @@ module PuppetX
           synced_folder = false,
           memory        = false,
           cpu           = false,
-          user          = false)
+          user          = false,
+          ip            = false,
+          act           = true)
 
         @user   = user
         @config = {
-          :name           => name,
-          :box            => box,
-          :provision      => provision,
-          :synced_folder  => synced_folder,
-          :memory         => memory,
-          :cpu            => cpu,
+          "name"           => name,
+          "box"            => box,
+          "provision"      => provision,
+          "synced_folder"  => synced_folder,
+          "memory"         => memory,
+          "cpu"            => cpu,
+          "ip"             => ip,
         }
 
-        ensure_config
-        ensure_vagrantfile
+
+        if act
+          if ! Dir.exists?(vm_instance_dir)
+            FileUtils.mkdir_p(vm_instance_dir)
+          end
+
+          ensure_config
+          ensure_vagrantfile
+        end
       end
 
-      # Vagrant to be driven from a .json config file, allt
+      # Vagrant to be driven from a .json config file, all
       # the parameters are externalised here
       def ensure_config
         File.open(configfile,"w") do |f|
@@ -56,8 +80,8 @@ module PuppetX
       # to symlink it for each directory.  This gives us the
       # benefit being to update by dropping a new module too
       def ensure_vagrantfile
-        target_file = File.join(Puppet[:factpath].split(':')[0], 'Vagrantfile')
-        ln_sf(src, vagrantfile, :force)
+        source_file = File.join(Puppet[:factpath].split(':')[0], 'Vagrantfile')
+        FileUtils.ln_sf(source_file, vagrantfile)
       end
 
       def delete_vagrantfile
@@ -65,20 +89,22 @@ module PuppetX
       end
 
       def vm_instance_dir
-        Path.join(VAGRANT_VM_DIR, @config['name'])
+        File.join(PuppetX::PuppetVagrant::VAGRANT_VM_DIR, @config["name"])
       end
 
       def vagrantfile
-        Path.join(vm_instance_dir, "Vagrantfile")
+        File.join(vm_instance_dir, "Vagrantfile")
       end
 
       def configfile
-        Path.join(vm_instance_dir, "Vagrantfile.json")
+        File.join(vm_instance_dir, "Vagrantfile.json")
       end
 
       def get_vm
         # Create an instance (represents a Vagrant installation)
-        instance = Derelict.instance(VAGRANT_DIR)
+        instance = Derelict.instance(PuppetX::PuppetVagrant::VAGRANT_DIR)
+        result = instance.execute('--version') # Derelict::Executer object
+        print "success" if result.success?
         vm = instance.connect(vm_instance_dir)
 
         vm
@@ -86,15 +112,17 @@ module PuppetX
 
 
       def start
-        get_vm.start!
+        result = get_vm.execute(:up)
+        result.success?
+        puts "*************up! #{result.success?}"
       end
 
       def stop
-        get_vm.stop!
+        get_vm.execute(:suspend)
       end
 
       def purge
-        get_vm.destroy!
+        get_vm.execute(:destroy)
         delete_vagrantfile
       end
     end

@@ -78,5 +78,8 @@ Puppet::Type.newtype(:vagrant_vm) do
     defaultto "vagrant"
   end
 
+  newparam(:ip) do
+    desc "IP address"
+  end
 
 end

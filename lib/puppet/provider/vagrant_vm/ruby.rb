@@ -11,23 +11,35 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
+require 'puppetx/puppet_vagrant'
 Puppet::Type.type(:vagrant_vm).provide(:vagrant_vm) do
   desc "vagrant_vm support"
 
   def exists?
-    File.file?(@resource[:name])
+    vm_instance = PuppetX::PuppetVagrant::Instance.new(
+      @resource[:name],
+      @resource[:box],
+      @resource[:provision],
+      @resource[:synced_folder],
+      @resource[:memory],
+      @resource[:cpu],
+      @resource[:user],
+      @resource[:ip],
+      false,
+    )
+    vm_instance.configured?
   end
 
   def present
     vm_instance = PuppetX::PuppetVagrant::Instance.new(
       @resource[:name],
       @resource[:box],
+      @resource[:provision],
       @resource[:synced_folder],
       @resource[:memory],
       @resource[:cpu],
-      @resource[:provision],
       @resource[:user],
+      @resource[:ip],
     )
   end
 

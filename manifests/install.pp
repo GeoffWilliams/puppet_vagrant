@@ -1,7 +1,7 @@
 # Puppet_vagrant::Install
 #
 # Install Vagrant and also the gems we need for managing
-# vagrant files into this node 
+# vagrant files into this node
 class puppet_vagrant::install(
     $user     = "vagrant",
     $group    = "vagrant",
@@ -15,16 +15,20 @@ class puppet_vagrant::install(
     ensure => present,
   }
 
-  puppet_gem { "derelict":
-    ensure => present,
+  # Gem to control vagrant, used by the type and provider
+  package { "derelict":
+    ensure   => present,
+    provider => "puppet_gem",
   }
 
+  # Vagrant - has to be installed this way until https://tickets.puppetlabs.com/browse/PUP-3323
+  # is resolved
   package { "vagrant":
-    ensure => present,
-    source => $package,
+    ensure   => present,
+    provider => "rpm",
+    source   => $package,
   }
 
-  # Installation of Vagrant now requires installer, gems don't work
-  # any more (good)
-  https://releases.hashicorp.com/vagrant/1.9.2/vagrant_1.9.2_x86_64.rpm?_ga=1.127977547.632083575.1475994455
+  # Vagrant fails to up on some boxes without rsync
+  ensure_packages("rsync", {"ensure"=>"present"})
 }
