@@ -37,6 +37,12 @@ Puppet::Type.newtype(:vagrant_vm) do
     end
 
     defaultto(:present)
+
+    def insync?(is)
+      is.to_s == should.to_s or
+        (is.to_s == 'running' and should.to_s == 'present') or
+        (is.to_s == 'stopped' and should.to_s == 'present')
+    end
   end
 
   # newparam(:vagrant_dir) do
@@ -44,9 +50,10 @@ Puppet::Type.newtype(:vagrant_vm) do
   #   defaultto "/vagrantvms"
   # end
 
-  newparam(:box) do
+  newproperty(:box) do
     desc "The vagrant box image to use"
-    isrequired
+    defaultto 'centos/7'
+    newvalue(/^\S+$/)
   end
 
   newparam(:synced_folder) do
@@ -54,17 +61,17 @@ Puppet::Type.newtype(:vagrant_vm) do
     #defaultto(["#{vagrant_dir}/#{title}:/vagrant"])
   end
 
-  newparam(:memory) do
+  newproperty(:memory) do
     desc "Memory to allocate to this VM in MB"
     defaultto "512"
   end
 
-  newparam(:cpu) do
+  newproperty(:cpu) do
     desc "vCPUs to allocate to this VM"
     defaultto "1"
   end
 
-  newparam(:provision) do
+  newproperty(:provision) do
     desc "Provision script to run after booting VM"
     defaultto "1"
   end
@@ -78,8 +85,13 @@ Puppet::Type.newtype(:vagrant_vm) do
     defaultto "vagrant"
   end
 
-  newparam(:ip) do
+  newproperty(:ip) do
     desc "IP address"
   end
 
+  def refresh
+    if @resource[:ensure] == :running
+      provider.refresh
+    end
+  end
 end

@@ -1,0 +1,40 @@
+#!/bin/sh
+#
+# Fake Vagrant for acceptance testing
+STATUS=".status"
+if [ ! -f Vagrantfile ] ; then
+  echo "No Vagrantfile!"
+  exit 1
+fi
+case "$1" in
+  status)
+    if [ -f $STATUS ] ; then
+      echo "VM already running"
+      exit 1
+    else
+      touch $STATUS
+      echo "started VM"
+    fi
+    ;;
+  up)
+    if [ -f $STATUS ] ; then
+      echo "VM already running"
+      exit 1
+    else
+      touch $STATUS
+      echo "started VM"
+    fi
+    ;;
+  suspend|destroy)
+    if [ -f $STATUS ] ; then
+      echo "shutting down VM"
+      rm $STATUS
+    else
+      echo "VM not running so can't be stopped"
+    fi
+    ;;
+  *)
+    echo "invalid command"
+    exit 1
+    ;;
+esac

@@ -16,15 +16,69 @@ require 'json'
 
 module PuppetX
   module PuppetVagrant
-    VAGRANT_DIR     = "/usr"
-    VAGRANT_VM_DIR  = "/var/lib/vagrant_vms"
+    VAGRANT_DIR       = "/usr"
+    VAGRANT_VM_DIR    = "/var/lib/vagrant_vms"
+    VAGRANTFILE       = "Vagrantfile"
+    VAGRANTFILE_JSON  = "#{VAGRANTFILE}.json"
 
     class Instance
+      def self.parse_instance(instance_name)
+        instance_dir = File.join(VAGRANT_VM_DIR, instance_name)
+        config_file = File.join(instance_dir, VAGRANTFILE_JSON)
+        if File.exists?(config_file)
+          json = File.read(config_file)
+          config = JSON.parse(json)
+
+          # This does work and queries the current status using derelic however
+          # puppet only interprets :present or :absent so its a waste.  Also
+          # anything != :present becomes :absent, so :running == :absent. I give
+          # up...
+          #
+          # i = PuppetX::PuppetVagrant::Instance.new(
+          #   instance_name,
+          #   false,
+          #   false,
+          #   false,
+          #   false,
+          #   false,
+          #   false,
+          #   false,
+          #   false,
+          # )
+          #
+          # config["ensure"] = i.get_vm.vm(:default).state
+          config["ensure"] = :present
+        else
+          # VM missing or damaged
+          config = {}
+          config["ensure"] = :absent
+          config["name"]   = instance_name
+        end
+
+
+        config
+      end
+
+      def self.instances
+        instance_wildcard = File.join(VAGRANT_VM_DIR, "*", VAGRANTFILE)
+        instances = {}
+        Dir.glob(instance_wildcard).each { |f|
+          elements = f.split(File::SEPARATOR)
+          # /var/lib/vagrant_vms/mycoolvm/vagrantfile
+          # ---------------------^^^^^^^^------------
+          name = elements[elements.size - 2]
+
+          instances[name] = parse_instance(name)
+        }
+
+        instances
+      end
+
       def configured?
         configured = false
         if Dir.exists? (vm_instance_dir) and File.exists?(configfile) and File.exists?(vagrantfile)
 
-          json = File.read('Vagrantfile.json')
+          json = File.read(configfile)
           have_config = JSON.parse(json)
 
           if have_config == @config
@@ -65,7 +119,7 @@ module PuppetX
           ensure_config
           ensure_vagrantfile
         end
-      end
+      end        
 
       # Vagrant to be driven from a .json config file, all
       # the parameters are externalised here
@@ -93,11 +147,11 @@ module PuppetX
       end
 
       def vagrantfile
-        File.join(vm_instance_dir, "Vagrantfile")
+        File.join(vm_instance_dir, VAGRANTFILE)
       end
 
       def configfile
-        File.join(vm_instance_dir, "Vagrantfile.json")
+        File.join(vm_instance_dir, VAGRANTFILE_JSON)
       end
 
       def get_vm
@@ -112,18 +166,26 @@ module PuppetX
 
 
       def start
+        Puppet.notice "Starting Vagrant_vm[#{@config['name']}]"
         result = get_vm.execute(:up)
         result.success?
         puts "*************up! #{result.success?}"
       end
 
       def stop
+        Puppet.notice "Stopping Vagrant_vm[#{@config['name']}]"
         get_vm.execute(:suspend)
       end
 
       def purge
+        Puppet.notice "purging Vagrant_vm[#{@config['name']}]"
         get_vm.execute(:destroy)
         delete_vagrantfile
+      end
+
+      def reload
+        Puppet.notice "Reloading Vagrant_vm[#{@config['name']}]"
+        get_vm.execute(:reload)
       end
     end
   end

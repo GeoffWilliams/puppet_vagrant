@@ -2,7 +2,7 @@
 # # vi: set ft=ruby :
 require 'json'
 
-# Read YAML file with box details
+# Read YAML file with box details - relative to current dir
 json = File.read('Vagrantfile.json')
 config = JSON.parse(json)
 

@@ -11,11 +11,64 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-require 'puppetx/puppet_vagrant'
-Puppet::Type.type(:vagrant_vm).provide(:vagrant_vm) do
+require 'puppet_x/puppet_vagrant'
+Puppet::Type.type(:vagrant_vm).provide(:vagrant_vm, :parent => Puppet::Provider) do
   desc "vagrant_vm support"
 
+  # Only if vagrant installed
+  confine :exists => '/usr/bin/vagrant'
+
+  mk_resource_methods
+
+  def initialize(value={})
+    super(value)
+    @property_flush = {}
+  end
+
+  def box=(value)
+    @property_flush[:box] = value
+  end
+
+  def synced_folder=(value)
+    @property_flush[:synced_folder] = value
+  end
+
+  def memory=(value)
+    @property_flush[:memory] = value
+  end
+
+  def cpu=(value)
+    @property_flush[:cpu] = value
+  end
+
+  def provision=(value)
+    @property_flush[:provision] = value
+  end
+
+  def ip=(value)
+    @property_flush[:ip] = value
+  end
+
   def exists?
+    @property_hash[:ensure] == :present
+  end
+
+  # def exists?
+  #   vm_instance = PuppetX::PuppetVagrant::Instance.new(
+  #     @resource[:name],
+  #     @resource[:box],
+  #     @resource[:provision],
+  #     @resource[:synced_folder],
+  #     @resource[:memory],
+  #     @resource[:cpu],
+  #     @resource[:user],
+  #     @resource[:ip],
+  #     false,
+  #   )
+  #   vm_instance.configured?
+  # end
+
+  def get_vm_instance
     vm_instance = PuppetX::PuppetVagrant::Instance.new(
       @resource[:name],
       @resource[:box],
@@ -25,22 +78,16 @@ Puppet::Type.type(:vagrant_vm).provide(:vagrant_vm) do
       @resource[:cpu],
       @resource[:user],
       @resource[:ip],
-      false,
     )
-    vm_instance.configured?
   end
 
   def present
-    vm_instance = PuppetX::PuppetVagrant::Instance.new(
-      @resource[:name],
-      @resource[:box],
-      @resource[:provision],
-      @resource[:synced_folder],
-      @resource[:memory],
-      @resource[:cpu],
-      @resource[:user],
-      @resource[:ip],
-    )
+    get_vm_instance
+  end
+
+  def refresh
+    vm_instance = PuppetX::PuppetVagrant::Instance.new(@resource[:name])
+    vm_instance.reload
   end
 
   def absent
@@ -54,6 +101,47 @@ Puppet::Type.type(:vagrant_vm).provide(:vagrant_vm) do
 
   def stopped
     present.stop
+  end
+
+  # puppet resource command (get) support
+  def self.instances
+    PuppetX::PuppetVagrant::Instance.instances.collect { |k,v|
+      puts k
+      puts v
+
+
+puts "ensure #{v['ensure']}"
+        new(:name => k,
+          :ensure        => v["ensure"],
+          :box           => v["box"],
+          :provision     => v["provision"],
+          :synced_folder => v["synced_folder"],
+          :memory        => v["memory"],
+          :cpu           => v["cpu"],
+          :ip            => v["ip"]
+        )
+
+    }
+
+  end
+
+  def self.prefetch(resources)
+    instances.each do |prov|
+      if resource = resources[prov.name]
+        resource.provider = prov
+      end
+    end
+  end
+
+  def flush
+    if ! @property_flush.empty?
+      # gettin instance updates the .json file
+      vm = get_vm_instance
+      if @resource[:ensure] == :running
+        # if we're supposed to be running then reload for settings to take effect
+        vm.reload
+      end
+    end
   end
 
 end

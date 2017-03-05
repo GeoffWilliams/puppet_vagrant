@@ -1,5 +1,6 @@
+#@PDQTest
 vagrant_vm { "mycoolvm":
-  ensure        => running,
+  ensure        => present,
   box           => "centos/7",
   synced_folder => ["/tmp:/tmp"],
   memory        => "1024",
