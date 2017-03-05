@@ -1,7 +1,7 @@
 #@PDQTest
 vagrant_vm { "mycoolvm":
   ensure        => running,
-  box           => "centos/7",
+  box           => "puppetlabs/centos-7.2-64-nocm",
   synced_folder => ["/tmp:/tmp"],
   memory        => "1024",
   cpu           => "2",

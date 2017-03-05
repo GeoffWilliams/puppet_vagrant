@@ -95,6 +95,33 @@ Puppet::Type.type(:vagrant_vm).provide(:vagrant_vm, :parent => Puppet::Provider)
     vm_instance.purge
   end
 
+  # check if the current ensure is :running (not :present as we *must* indicate
+  # to puppet for it to not mark us absent)...
+  def vm_running
+    # puppet doesn't seem to be able to distinguish between :present and
+    # :running (which maps to absent...) so we need to figure out ourselves
+    # There's probably a more puppety way of doing this... does anyone know
+    # what it is?
+    i = PuppetX::PuppetVagrant::Instance.new(
+      @resource[:name],
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+    )
+
+    status = false
+    if i.get_vm.vm(:default).state == :running
+      status = true
+    end
+
+    status
+  end
+
   def running
     present.start
   end

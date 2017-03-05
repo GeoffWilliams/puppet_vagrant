@@ -8,13 +8,15 @@ if [ ! -f Vagrantfile ] ; then
 fi
 case "$1" in
   status)
+    echo "Current machine states:"
+    echo
     if [ -f $STATUS ] ; then
-      echo "VM already running"
-      exit 1
+      echo -e "default\t\t\trunning (virtualbox)"
     else
-      touch $STATUS
-      echo "started VM"
+      echo -e "default\t\t\tsaved (virtualbox)"
     fi
+    echo
+    echo "To resume this VM, simply run `vagrant up`."
     ;;
   up)
     if [ -f $STATUS ] ; then
@@ -31,6 +33,7 @@ case "$1" in
       rm $STATUS
     else
       echo "VM not running so can't be stopped"
+      exit 1
     fi
     ;;
   *)

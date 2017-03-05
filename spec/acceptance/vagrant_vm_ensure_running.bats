@@ -11,5 +11,5 @@
 }
 
 @test "VM should be running" {
-  cd /var/lib/vagrant_vms/mycoolvm && vagrant status
+  cd /var/lib/vagrant_vms/mycoolvm && vagrant status | grep running
 }

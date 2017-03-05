@@ -41,7 +41,8 @@ Puppet::Type.newtype(:vagrant_vm) do
     def insync?(is)
       is.to_s == should.to_s or
         (is.to_s == 'running' and should.to_s == 'present') or
-        (is.to_s == 'stopped' and should.to_s == 'present')
+        (is.to_s == 'stopped' and should.to_s == 'present') or
+        (is.to_s == 'present' and should.to_s == 'running' and provider.vm_running)
     end
   end
 
