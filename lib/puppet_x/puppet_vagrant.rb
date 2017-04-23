@@ -85,9 +85,9 @@ module PuppetX
           ip                  = false,
           puppet_master_fqdn  = false,
           puppet_master_ip    = false,
-          certname            = false,
           pp_role             = false,
           challenge_password  = false,
+          certname            = false,
           act                 = true)
 
         @user   = user
