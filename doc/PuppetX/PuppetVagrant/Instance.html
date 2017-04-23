@@ -308,7 +308,7 @@ pluginsync, so we just need to symlink it for each directory.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(name, box = false, provision = false, synced_folder = false, memory = false, cpu = false, user = false, ip = false, puppet_master = false, certname = false, pp_role = false, challenge_password = false, act = true)  &#x21d2; Instance </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(name, box = false, provision = false, synced_folder = false, memory = false, cpu = false, user = false, ip = false, puppet_master_fqdn = false, puppet_master_ip = false, certname = false, pp_role = false, challenge_password = false, act = true)  &#x21d2; Instance </a>
     
 
     
@@ -472,7 +472,7 @@ pluginsync, so we just need to symlink it for each directory.</p>
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(name, box = false, provision = false, synced_folder = false, memory = false, cpu = false, user = false, ip = false, puppet_master = false, certname = false, pp_role = false, challenge_password = false, act = true)  &#x21d2; <tt><span class='object_link'><a href="" title="PuppetX::PuppetVagrant::Instance (class)">Instance</a></span></tt> 
+    #<strong>initialize</strong>(name, box = false, provision = false, synced_folder = false, memory = false, cpu = false, user = false, ip = false, puppet_master_fqdn = false, puppet_master_ip = false, certname = false, pp_role = false, challenge_password = false, act = true)  &#x21d2; <tt><span class='object_link'><a href="" title="PuppetX::PuppetVagrant::Instance (class)">Instance</a></span></tt> 
   
 
   
@@ -534,7 +534,9 @@ pluginsync, so we just need to symlink it for each directory.</p>
 113
 114
 115
-116</pre>
+116
+117
+118</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 77</span>
@@ -548,7 +550,8 @@ pluginsync, so we just need to symlink it for each directory.</p>
     <span class='id identifier rubyid_cpu'>cpu</span>                 <span class='op'>=</span> <span class='kw'>false</span><span class='comma'>,</span>
     <span class='id identifier rubyid_user'>user</span>                <span class='op'>=</span> <span class='kw'>false</span><span class='comma'>,</span>
     <span class='id identifier rubyid_ip'>ip</span>                  <span class='op'>=</span> <span class='kw'>false</span><span class='comma'>,</span>
-    <span class='id identifier rubyid_puppet_master'>puppet_master</span>       <span class='op'>=</span> <span class='kw'>false</span><span class='comma'>,</span>
+    <span class='id identifier rubyid_puppet_master_fqdn'>puppet_master_fqdn</span>  <span class='op'>=</span> <span class='kw'>false</span><span class='comma'>,</span>
+    <span class='id identifier rubyid_puppet_master_ip'>puppet_master_ip</span>    <span class='op'>=</span> <span class='kw'>false</span><span class='comma'>,</span>
     <span class='id identifier rubyid_certname'>certname</span>            <span class='op'>=</span> <span class='kw'>false</span><span class='comma'>,</span>
     <span class='id identifier rubyid_pp_role'>pp_role</span>             <span class='op'>=</span> <span class='kw'>false</span><span class='comma'>,</span>
     <span class='id identifier rubyid_challenge_password'>challenge_password</span>  <span class='op'>=</span> <span class='kw'>false</span><span class='comma'>,</span>
@@ -563,7 +566,8 @@ pluginsync, so we just need to symlink it for each directory.</p>
     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>memory</span><span class='tstring_end'>&quot;</span></span>              <span class='op'>=&gt;</span> <span class='id identifier rubyid_memory'>memory</span><span class='comma'>,</span>
     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>cpu</span><span class='tstring_end'>&quot;</span></span>                 <span class='op'>=&gt;</span> <span class='id identifier rubyid_cpu'>cpu</span><span class='comma'>,</span>
     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ip</span><span class='tstring_end'>&quot;</span></span>                  <span class='op'>=&gt;</span> <span class='id identifier rubyid_ip'>ip</span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>puppet_master</span><span class='tstring_end'>&quot;</span></span>       <span class='op'>=&gt;</span> <span class='id identifier rubyid_puppet_master'>puppet_master</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>puppet_master_fqdn</span><span class='tstring_end'>&quot;</span></span>  <span class='op'>=&gt;</span> <span class='id identifier rubyid_puppet_master_fqdn'>puppet_master_fqdn</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>puppet_master_ip</span><span class='tstring_end'>&quot;</span></span>    <span class='op'>=&gt;</span> <span class='id identifier rubyid_puppet_master_ip'>puppet_master_ip</span><span class='comma'>,</span>
     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>certname</span><span class='tstring_end'>&quot;</span></span>            <span class='op'>=&gt;</span> <span class='id identifier rubyid_certname'>certname</span><span class='comma'>,</span>
     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>pp_role</span><span class='tstring_end'>&quot;</span></span>             <span class='op'>=&gt;</span> <span class='id identifier rubyid_pp_role'>pp_role</span><span class='comma'>,</span>
     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>challenge_password</span><span class='tstring_end'>&quot;</span></span>  <span class='op'>=&gt;</span> <span class='id identifier rubyid_challenge_password'>challenge_password</span><span class='comma'>,</span>
@@ -732,12 +736,12 @@ pluginsync, so we just need to symlink it for each directory.</p>
       <pre class="lines">
 
 
-147
-148
-149</pre>
+149
+150
+151</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 147</span>
+      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 149</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_configfile'>configfile</span>
   <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_vm_instance_dir'>vm_instance_dir</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="../PuppetVagrant.html#VAGRANTFILE_JSON-constant" title="PuppetX::PuppetVagrant::VAGRANTFILE_JSON (constant)">VAGRANTFILE_JSON</a></span></span><span class='rparen'>)</span>
@@ -834,12 +838,12 @@ pluginsync, so we just need to symlink it for each directory.</p>
       <pre class="lines">
 
 
-135
-136
-137</pre>
+137
+138
+139</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 135</span>
+      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 137</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete_vagrantfile'>delete_vagrantfile</span>
   <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_rm_r'>rm_r</span><span class='lparen'>(</span><span class='id identifier rubyid_vm_instance_dir'>vm_instance_dir</span><span class='rparen'>)</span>
@@ -876,14 +880,14 @@ externalised here</p>
       <pre class="lines">
 
 
-120
-121
 122
 123
-124</pre>
+124
+125
+126</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 120</span>
+      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 122</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ensure_config'>ensure_config</span>
   <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='id identifier rubyid_configfile'>configfile</span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>w</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_f'>f</span><span class='op'>|</span>
@@ -923,13 +927,13 @@ the benefit being to update by dropping a new module too</p>
       <pre class="lines">
 
 
-130
-131
 132
-133</pre>
+133
+134
+135</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 130</span>
+      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 132</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ensure_vagrantfile'>ensure_vagrantfile</span>
   <span class='id identifier rubyid_source_file'>source_file</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='const'>Puppet</span><span class='lbracket'>[</span><span class='symbol'>:factpath</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>:</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Vagrantfile</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
@@ -955,18 +959,18 @@ the benefit being to update by dropping a new module too</p>
       <pre class="lines">
 
 
-151
-152
 153
 154
 155
 156
 157
 158
-159</pre>
+159
+160
+161</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 151</span>
+      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 153</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_vm'>get_vm</span>
   <span class='comment'># Create an instance (represents a Vagrant installation)
@@ -997,14 +1001,14 @@ the benefit being to update by dropping a new module too</p>
       <pre class="lines">
 
 
-174
-175
 176
 177
-178</pre>
+178
+179
+180</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 174</span>
+      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 176</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_purge'>purge</span>
   <span class='const'>Puppet</span><span class='period'>.</span><span class='id identifier rubyid_notice'>notice</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>purging Vagrant_vm[</span><span class='embexpr_beg'>#{</span><span class='ivar'>@config</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>name</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>]</span><span class='tstring_end'>&quot;</span></span>
@@ -1031,13 +1035,13 @@ the benefit being to update by dropping a new module too</p>
       <pre class="lines">
 
 
-180
-181
 182
-183</pre>
+183
+184
+185</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 180</span>
+      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 182</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_reload'>reload</span>
   <span class='const'>Puppet</span><span class='period'>.</span><span class='id identifier rubyid_notice'>notice</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Reloading Vagrant_vm[</span><span class='embexpr_beg'>#{</span><span class='ivar'>@config</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>name</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>]</span><span class='tstring_end'>&quot;</span></span>
@@ -1063,15 +1067,15 @@ the benefit being to update by dropping a new module too</p>
       <pre class="lines">
 
 
-162
-163
 164
 165
 166
-167</pre>
+167
+168
+169</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 162</span>
+      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 164</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_start'>start</span>
   <span class='const'>Puppet</span><span class='period'>.</span><span class='id identifier rubyid_notice'>notice</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Starting Vagrant_vm[</span><span class='embexpr_beg'>#{</span><span class='ivar'>@config</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>name</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>]</span><span class='tstring_end'>&quot;</span></span>
@@ -1099,13 +1103,13 @@ the benefit being to update by dropping a new module too</p>
       <pre class="lines">
 
 
-169
-170
 171
-172</pre>
+172
+173
+174</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 169</span>
+      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 171</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stop'>stop</span>
   <span class='const'>Puppet</span><span class='period'>.</span><span class='id identifier rubyid_notice'>notice</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Stopping Vagrant_vm[</span><span class='embexpr_beg'>#{</span><span class='ivar'>@config</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>name</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>]</span><span class='tstring_end'>&quot;</span></span>
@@ -1131,12 +1135,12 @@ the benefit being to update by dropping a new module too</p>
       <pre class="lines">
 
 
-143
-144
-145</pre>
+145
+146
+147</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 143</span>
+      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 145</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_vagrantfile'>vagrantfile</span>
   <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_vm_instance_dir'>vm_instance_dir</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="../PuppetVagrant.html#VAGRANTFILE-constant" title="PuppetX::PuppetVagrant::VAGRANTFILE (constant)">VAGRANTFILE</a></span></span><span class='rparen'>)</span>
@@ -1161,12 +1165,12 @@ the benefit being to update by dropping a new module too</p>
       <pre class="lines">
 
 
-139
-140
-141</pre>
+141
+142
+143</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 139</span>
+      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 141</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_vm_instance_dir'>vm_instance_dir</span>
   <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../PuppetX.html" title="PuppetX (module)">PuppetX</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../PuppetVagrant.html" title="PuppetX::PuppetVagrant (module)">PuppetVagrant</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../PuppetVagrant.html#VAGRANT_VM_DIR-constant" title="PuppetX::PuppetVagrant::VAGRANT_VM_DIR (constant)">VAGRANT_VM_DIR</a></span></span><span class='comma'>,</span> <span class='ivar'>@config</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>

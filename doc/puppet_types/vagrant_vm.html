@@ -316,13 +316,40 @@ requested)</p>
     </li>
     
     <li>
-      <span class="name">puppet_master</span>
+      <span class="name">puppet_master_fqdn</span>
       
       
       <div class="docstring">
         <div class="discussion">
           
-<p>fqdn of puppet master to connect this VM to, or IP address if not in DNS</p>
+<p>fqdn of puppet master to connect this VM to</p>
+
+        </div>
+      </div>
+      
+      
+      <div>
+        Supported values:
+        <ul>
+          
+          <li>
+            
+            /^\S+$/
+          </li>
+          
+        </ul>
+      </div>
+      
+    </li>
+    
+    <li>
+      <span class="name">puppet_master_ip</span>
+      
+      
+      <div class="docstring">
+        <div class="discussion">
+          
+<p>IP address of puppet master if not in DNS</p>
 
         </div>
       </div>

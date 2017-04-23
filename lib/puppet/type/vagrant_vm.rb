@@ -57,8 +57,13 @@ Puppet::Type.newtype(:vagrant_vm) do
     newvalue(/^\S+$/)
   end
 
-  newproperty(:puppet_master) do
-    desc "fqdn of puppet master to connect this VM to, or IP address if not in DNS"
+  newproperty(:puppet_master_fqdn) do
+    desc "fqdn of puppet master to connect this VM to"
+    newvalue(/^\S+$/)
+  end
+
+  newproperty(:puppet_master_ip) do
+    desc "IP address of puppet master if not in DNS"
     newvalue(/^\S+$/)
   end
 

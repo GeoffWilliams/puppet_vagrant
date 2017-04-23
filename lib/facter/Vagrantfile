@@ -13,13 +13,14 @@ config = JSON.parse(json)
 # does everyone else's examples work?  Perhaps vagrant changed recently
 
 # puppet provisioning
-puppet_master  = config["puppet_master"]
-if puppet_master
+puppet_master_fqdn  = config["puppet_master_fqdn"]
+if puppet_master_fqdn
   challenge_password  = config['challenge_password'] ? "custom_attributes:challengePassword=#{config['challenge_password']}": ""
   certname            = config['certname'] ? "agent:certname=#{config['certname']}" : ""
   pp_role             = config['pp_role'] ? "extension_requests:pp_role=#{config['pp_role']}" : ""
+  patch_hosts         = config['puppet_master_ip'] ? "echo '#{config['puppet_master_ip']} #{puppet_master_fqdn}' >> /etc/hosts\n" : ""
 
-  puppet_provision = "curl -k https://#{puppet_master}:8140/packages/current/install.bash | sudo bash -s #{certname} #{challenge_password} #{pp_role}\n"
+  puppet_provision = "#{patch_hosts} curl -k https://#{puppet_master_fqdn}:8140/packages/current/install.bash | sudo bash -s #{certname} #{challenge_password} #{pp_role}\n"
 else
   puppet_provision = ""
 end

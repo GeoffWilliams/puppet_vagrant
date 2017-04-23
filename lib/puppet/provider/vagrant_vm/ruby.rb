@@ -29,8 +29,12 @@ Puppet::Type.type(:vagrant_vm).provide(:vagrant_vm, :parent => Puppet::Provider)
     @property_flush[:box] = value
   end
 
-  def puppet_master=(value)
-    @property_flush[:puppet_master] = value
+  def puppet_master_fqdn=(value)
+    @property_flush[:puppet_master_fqdn] = value
+  end
+
+  def puppet_master_ip=(value)
+    @property_flush[:puppet_master_ip] = value
   end
 
   def pp_role=(value)
@@ -94,7 +98,8 @@ Puppet::Type.type(:vagrant_vm).provide(:vagrant_vm, :parent => Puppet::Provider)
       @resource[:cpu],
       @resource[:user],
       @resource[:ip],
-      @resource[:puppet_master],
+      @resource[:puppet_master_fqdn],
+      @resource[:puppet_master_ip],
       @resource[:pp_role],
       @resource[:challenge_password],
       @resource[:certname],
@@ -170,7 +175,8 @@ puts "ensure #{v['ensure']}"
           :memory             => v["memory"],
           :cpu                => v["cpu"],
           :ip                 => v["ip"],
-          :puppet_master      => v["puppet_master"],
+          :puppet_master_fqdn => v["puppet_master_fqdn"],
+          :puppet_master_ip   => v["puppet_master_ip"],
           :certname           => v["certname"],
           :pp_role            => v["pp_role"],
           :challenge_password => v["challenge_password"],
