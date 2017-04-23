@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: PuppetX::PuppetVagrant::Instance
+  
+    &mdash; Documentation by YARD 0.9.8
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "PuppetX::PuppetVagrant::Instance";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (I)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../PuppetX.html" title="PuppetX (module)">PuppetX</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../PuppetVagrant.html" title="PuppetX::PuppetVagrant (module)">PuppetVagrant</a></span></span>
+     &raquo; 
+    <span class="title">Instance</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="puppet_class_list_link"
+        href="../../puppet_class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: PuppetX::PuppetVagrant::Instance
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">PuppetX::PuppetVagrant::Instance</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/puppet_x/puppet_vagrant.rb</dd>
+  </dl>
+  
+</div>
+
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#instances-class_method" title="instances (class method)">.<strong>instances</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#parse_instance-class_method" title="parse_instance (class method)">.<strong>parse_instance</strong>(instance_name)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#configfile-instance_method" title="#configfile (instance method)">#<strong>configfile</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#configured%3F-instance_method" title="#configured? (instance method)">#<strong>configured?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#delete_vagrantfile-instance_method" title="#delete_vagrantfile (instance method)">#<strong>delete_vagrantfile</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ensure_config-instance_method" title="#ensure_config (instance method)">#<strong>ensure_config</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Vagrant to be driven from a .json config file, all the parameters are
+externalised here.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ensure_vagrantfile-instance_method" title="#ensure_vagrantfile (instance method)">#<strong>ensure_vagrantfile</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The Vagrantfile itself is shipped as part of this module and delivered via
+pluginsync, so we just need to symlink it for each directory.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_vm-instance_method" title="#get_vm (instance method)">#<strong>get_vm</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(name, box = false, provision = false, synced_folder = false, memory = false, cpu = false, user = false, ip = false, puppet_master = false, certname = false, pp_role = false, challenge_password = false, act = true)  &#x21d2; Instance </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of Instance.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#purge-instance_method" title="#purge (instance method)">#<strong>purge</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#reload-instance_method" title="#reload (instance method)">#<strong>reload</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#start-instance_method" title="#start (instance method)">#<strong>start</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stop-instance_method" title="#stop (instance method)">#<strong>stop</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#vagrantfile-instance_method" title="#vagrantfile (instance method)">#<strong>vagrantfile</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#vm_instance_dir-instance_method" title="#vm_instance_dir (instance method)">#<strong>vm_instance_dir</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    #<strong>initialize</strong>(name, box = false, provision = false, synced_folder = false, memory = false, cpu = false, user = false, ip = false, puppet_master = false, certname = false, pp_role = false, challenge_password = false, act = true)  &#x21d2; <tt><span class='object_link'><a href="" title="PuppetX::PuppetVagrant::Instance (class)">Instance</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a new instance of Instance</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 77</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span>
+    <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span>
+    <span class='id identifier rubyid_box'>box</span>                 <span class='op'>=</span> <span class='kw'>false</span><span class='comma'>,</span>
+    <span class='id identifier rubyid_provision'>provision</span>           <span class='op'>=</span> <span class='kw'>false</span><span class='comma'>,</span>
+    <span class='id identifier rubyid_synced_folder'>synced_folder</span>       <span class='op'>=</span> <span class='kw'>false</span><span class='comma'>,</span>
+    <span class='id identifier rubyid_memory'>memory</span>              <span class='op'>=</span> <span class='kw'>false</span><span class='comma'>,</span>
+    <span class='id identifier rubyid_cpu'>cpu</span>                 <span class='op'>=</span> <span class='kw'>false</span><span class='comma'>,</span>
+    <span class='id identifier rubyid_user'>user</span>                <span class='op'>=</span> <span class='kw'>false</span><span class='comma'>,</span>
+    <span class='id identifier rubyid_ip'>ip</span>                  <span class='op'>=</span> <span class='kw'>false</span><span class='comma'>,</span>
+    <span class='id identifier rubyid_puppet_master'>puppet_master</span>       <span class='op'>=</span> <span class='kw'>false</span><span class='comma'>,</span>
+    <span class='id identifier rubyid_certname'>certname</span>            <span class='op'>=</span> <span class='kw'>false</span><span class='comma'>,</span>
+    <span class='id identifier rubyid_pp_role'>pp_role</span>             <span class='op'>=</span> <span class='kw'>false</span><span class='comma'>,</span>
+    <span class='id identifier rubyid_challenge_password'>challenge_password</span>  <span class='op'>=</span> <span class='kw'>false</span><span class='comma'>,</span>
+    <span class='id identifier rubyid_act'>act</span>                 <span class='op'>=</span> <span class='kw'>true</span><span class='rparen'>)</span>
+
+  <span class='ivar'>@user</span>   <span class='op'>=</span> <span class='id identifier rubyid_user'>user</span>
+  <span class='ivar'>@config</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span class='tstring_end'>&quot;</span></span>                <span class='op'>=&gt;</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>box</span><span class='tstring_end'>&quot;</span></span>                 <span class='op'>=&gt;</span> <span class='id identifier rubyid_box'>box</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>provision</span><span class='tstring_end'>&quot;</span></span>           <span class='op'>=&gt;</span> <span class='id identifier rubyid_provision'>provision</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>synced_folder</span><span class='tstring_end'>&quot;</span></span>       <span class='op'>=&gt;</span> <span class='id identifier rubyid_synced_folder'>synced_folder</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>memory</span><span class='tstring_end'>&quot;</span></span>              <span class='op'>=&gt;</span> <span class='id identifier rubyid_memory'>memory</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>cpu</span><span class='tstring_end'>&quot;</span></span>                 <span class='op'>=&gt;</span> <span class='id identifier rubyid_cpu'>cpu</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ip</span><span class='tstring_end'>&quot;</span></span>                  <span class='op'>=&gt;</span> <span class='id identifier rubyid_ip'>ip</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>puppet_master</span><span class='tstring_end'>&quot;</span></span>       <span class='op'>=&gt;</span> <span class='id identifier rubyid_puppet_master'>puppet_master</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>certname</span><span class='tstring_end'>&quot;</span></span>            <span class='op'>=&gt;</span> <span class='id identifier rubyid_certname'>certname</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>pp_role</span><span class='tstring_end'>&quot;</span></span>             <span class='op'>=&gt;</span> <span class='id identifier rubyid_pp_role'>pp_role</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>challenge_password</span><span class='tstring_end'>&quot;</span></span>  <span class='op'>=&gt;</span> <span class='id identifier rubyid_challenge_password'>challenge_password</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_act'>act</span>
+    <span class='kw'>if</span> <span class='op'>!</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_exists?'>exists?</span><span class='lparen'>(</span><span class='id identifier rubyid_vm_instance_dir'>vm_instance_dir</span><span class='rparen'>)</span>
+      <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_mkdir_p'>mkdir_p</span><span class='lparen'>(</span><span class='id identifier rubyid_vm_instance_dir'>vm_instance_dir</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_ensure_config'>ensure_config</span>
+    <span class='id identifier rubyid_ensure_vagrantfile'>ensure_vagrantfile</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="instances-class_method">
+  
+    .<strong>instances</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 48</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_instances'>instances</span>
+  <span class='id identifier rubyid_instance_wildcard'>instance_wildcard</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../PuppetVagrant.html#VAGRANT_VM_DIR-constant" title="PuppetX::PuppetVagrant::VAGRANT_VM_DIR (constant)">VAGRANT_VM_DIR</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="../PuppetVagrant.html#VAGRANTFILE-constant" title="PuppetX::PuppetVagrant::VAGRANTFILE (constant)">VAGRANTFILE</a></span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_instances'>instances</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_glob'>glob</span><span class='lparen'>(</span><span class='id identifier rubyid_instance_wildcard'>instance_wildcard</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_f'>f</span><span class='op'>|</span>
+    <span class='id identifier rubyid_elements'>elements</span> <span class='op'>=</span> <span class='id identifier rubyid_f'>f</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='const'>File</span><span class='op'>::</span><span class='const'>SEPARATOR</span><span class='rparen'>)</span>
+    <span class='comment'># /var/lib/vagrant_vms/mycoolvm/vagrantfile
+</span>    <span class='comment'># ---------------------^^^^^^^^------------
+</span>    <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='id identifier rubyid_elements'>elements</span><span class='lbracket'>[</span><span class='id identifier rubyid_elements'>elements</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>-</span> <span class='int'>2</span><span class='rbracket'>]</span>
+
+    <span class='id identifier rubyid_instances'>instances</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_parse_instance'>parse_instance</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='rbrace'>}</span>
+
+  <span class='id identifier rubyid_instances'>instances</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="parse_instance-class_method">
+  
+    .<strong>parse_instance</strong>(instance_name)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 25</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_parse_instance'>parse_instance</span><span class='lparen'>(</span><span class='id identifier rubyid_instance_name'>instance_name</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_instance_dir'>instance_dir</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../PuppetVagrant.html#VAGRANT_VM_DIR-constant" title="PuppetX::PuppetVagrant::VAGRANT_VM_DIR (constant)">VAGRANT_VM_DIR</a></span></span><span class='comma'>,</span> <span class='id identifier rubyid_instance_name'>instance_name</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_config_file'>config_file</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_instance_dir'>instance_dir</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="../PuppetVagrant.html#VAGRANTFILE_JSON-constant" title="PuppetX::PuppetVagrant::VAGRANTFILE_JSON (constant)">VAGRANTFILE_JSON</a></span></span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_exists?'>exists?</span><span class='lparen'>(</span><span class='id identifier rubyid_config_file'>config_file</span><span class='rparen'>)</span>
+
+    <span class='comment'># json validity test
+</span>    <span class='id identifier rubyid_json'>json</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span><span class='lparen'>(</span><span class='id identifier rubyid_config_file'>config_file</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_config'>config</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_json'>json</span><span class='rparen'>)</span>
+
+    <span class='comment'># anything != :present becomes :absent, so :running == :absent. I give
+</span>    <span class='comment'># up...
+</span>    <span class='id identifier rubyid_config'>config</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ensure</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='symbol'>:present</span>
+  <span class='kw'>else</span>
+    <span class='comment'># VM missing or damaged
+</span>    <span class='id identifier rubyid_config'>config</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+    <span class='id identifier rubyid_config'>config</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ensure</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='symbol'>:absent</span>
+    <span class='id identifier rubyid_config'>config</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>   <span class='op'>=</span> <span class='id identifier rubyid_instance_name'>instance_name</span>
+  <span class='kw'>end</span>
+
+
+  <span class='id identifier rubyid_config'>config</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="configfile-instance_method">
+  
+    #<strong>configfile</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+147
+148
+149</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 147</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_configfile'>configfile</span>
+  <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_vm_instance_dir'>vm_instance_dir</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="../PuppetVagrant.html#VAGRANTFILE_JSON-constant" title="PuppetX::PuppetVagrant::VAGRANTFILE_JSON (constant)">VAGRANTFILE_JSON</a></span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="configured?-instance_method">
+  
+    #<strong>configured?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 63</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_configured?'>configured?</span>
+  <span class='id identifier rubyid_configured'>configured</span> <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='kw'>if</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_exists?'>exists?</span> <span class='lparen'>(</span><span class='id identifier rubyid_vm_instance_dir'>vm_instance_dir</span><span class='rparen'>)</span> <span class='kw'>and</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_exists?'>exists?</span><span class='lparen'>(</span><span class='id identifier rubyid_configfile'>configfile</span><span class='rparen'>)</span> <span class='kw'>and</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_exists?'>exists?</span><span class='lparen'>(</span><span class='id identifier rubyid_vagrantfile'>vagrantfile</span><span class='rparen'>)</span>
+
+    <span class='id identifier rubyid_json'>json</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span><span class='lparen'>(</span><span class='id identifier rubyid_configfile'>configfile</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_have_config'>have_config</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_json'>json</span><span class='rparen'>)</span>
+
+    <span class='kw'>if</span> <span class='id identifier rubyid_have_config'>have_config</span> <span class='op'>==</span> <span class='ivar'>@config</span>
+      <span class='id identifier rubyid_configured'>configured</span> <span class='op'>=</span> <span class='kw'>true</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_configured'>configured</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="delete_vagrantfile-instance_method">
+  
+    #<strong>delete_vagrantfile</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+135
+136
+137</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 135</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_delete_vagrantfile'>delete_vagrantfile</span>
+  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_rm_r'>rm_r</span><span class='lparen'>(</span><span class='id identifier rubyid_vm_instance_dir'>vm_instance_dir</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ensure_config-instance_method">
+  
+    #<strong>ensure_config</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Vagrant to be driven from a .json config file, all the parameters are
+externalised here</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+120
+121
+122
+123
+124</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 120</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_ensure_config'>ensure_config</span>
+  <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='id identifier rubyid_configfile'>configfile</span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>w</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_f'>f</span><span class='op'>|</span>
+    <span class='id identifier rubyid_f'>f</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='ivar'>@config</span><span class='period'>.</span><span class='id identifier rubyid_to_json'>to_json</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ensure_vagrantfile-instance_method">
+  
+    #<strong>ensure_vagrantfile</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The Vagrantfile itself is shipped as part of this module and delivered via
+pluginsync, so we just need to symlink it for each directory. This gives us
+the benefit being to update by dropping a new module too</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+130
+131
+132
+133</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 130</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_ensure_vagrantfile'>ensure_vagrantfile</span>
+  <span class='id identifier rubyid_source_file'>source_file</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='const'>Puppet</span><span class='lbracket'>[</span><span class='symbol'>:factpath</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>:</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Vagrantfile</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_ln_sf'>ln_sf</span><span class='lparen'>(</span><span class='id identifier rubyid_source_file'>source_file</span><span class='comma'>,</span> <span class='id identifier rubyid_vagrantfile'>vagrantfile</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_vm-instance_method">
+  
+    #<strong>get_vm</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+151
+152
+153
+154
+155
+156
+157
+158
+159</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 151</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_vm'>get_vm</span>
+  <span class='comment'># Create an instance (represents a Vagrant installation)
+</span>  <span class='id identifier rubyid_instance'>instance</span> <span class='op'>=</span> <span class='const'>Derelict</span><span class='period'>.</span><span class='id identifier rubyid_instance'>instance</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../PuppetX.html" title="PuppetX (module)">PuppetX</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../PuppetVagrant.html" title="PuppetX::PuppetVagrant (module)">PuppetVagrant</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../PuppetVagrant.html#VAGRANT_DIR-constant" title="PuppetX::PuppetVagrant::VAGRANT_DIR (constant)">VAGRANT_DIR</a></span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_instance'>instance</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>--version</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='comment'># Derelict::Executer object
+</span>  <span class='id identifier rubyid_print'>print</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>success</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_result'>result</span><span class='period'>.</span><span class='id identifier rubyid_success?'>success?</span>
+  <span class='id identifier rubyid_vm'>vm</span> <span class='op'>=</span> <span class='id identifier rubyid_instance'>instance</span><span class='period'>.</span><span class='id identifier rubyid_connect'>connect</span><span class='lparen'>(</span><span class='id identifier rubyid_vm_instance_dir'>vm_instance_dir</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_vm'>vm</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="purge-instance_method">
+  
+    #<strong>purge</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+174
+175
+176
+177
+178</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 174</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_purge'>purge</span>
+  <span class='const'>Puppet</span><span class='period'>.</span><span class='id identifier rubyid_notice'>notice</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>purging Vagrant_vm[</span><span class='embexpr_beg'>#{</span><span class='ivar'>@config</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>name</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>]</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_get_vm'>get_vm</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='symbol'>:destroy</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_delete_vagrantfile'>delete_vagrantfile</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="reload-instance_method">
+  
+    #<strong>reload</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+180
+181
+182
+183</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 180</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_reload'>reload</span>
+  <span class='const'>Puppet</span><span class='period'>.</span><span class='id identifier rubyid_notice'>notice</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Reloading Vagrant_vm[</span><span class='embexpr_beg'>#{</span><span class='ivar'>@config</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>name</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>]</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_get_vm'>get_vm</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='symbol'>:reload</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="start-instance_method">
+  
+    #<strong>start</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+162
+163
+164
+165
+166
+167</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 162</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_start'>start</span>
+  <span class='const'>Puppet</span><span class='period'>.</span><span class='id identifier rubyid_notice'>notice</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Starting Vagrant_vm[</span><span class='embexpr_beg'>#{</span><span class='ivar'>@config</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>name</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>]</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_get_vm'>get_vm</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='symbol'>:up</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_result'>result</span><span class='period'>.</span><span class='id identifier rubyid_success?'>success?</span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*************up! </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_result'>result</span><span class='period'>.</span><span class='id identifier rubyid_success?'>success?</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="stop-instance_method">
+  
+    #<strong>stop</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+169
+170
+171
+172</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 169</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_stop'>stop</span>
+  <span class='const'>Puppet</span><span class='period'>.</span><span class='id identifier rubyid_notice'>notice</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Stopping Vagrant_vm[</span><span class='embexpr_beg'>#{</span><span class='ivar'>@config</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>name</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>]</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_get_vm'>get_vm</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='symbol'>:suspend</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="vagrantfile-instance_method">
+  
+    #<strong>vagrantfile</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+143
+144
+145</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 143</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_vagrantfile'>vagrantfile</span>
+  <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_vm_instance_dir'>vm_instance_dir</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="../PuppetVagrant.html#VAGRANTFILE-constant" title="PuppetX::PuppetVagrant::VAGRANTFILE (constant)">VAGRANTFILE</a></span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="vm_instance_dir-instance_method">
+  
+    #<strong>vm_instance_dir</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+139
+140
+141</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/puppet_x/puppet_vagrant.rb', line 139</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_vm_instance_dir'>vm_instance_dir</span>
+  <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../PuppetX.html" title="PuppetX (module)">PuppetX</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../PuppetVagrant.html" title="PuppetX::PuppetVagrant (module)">PuppetVagrant</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../PuppetVagrant.html#VAGRANT_VM_DIR-constant" title="PuppetX::PuppetVagrant::VAGRANT_VM_DIR (constant)">VAGRANT_VM_DIR</a></span></span><span class='comma'>,</span> <span class='ivar'>@config</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+     Generated by <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>.
+</div>
+
+    </div>
+  </body>
+</html>

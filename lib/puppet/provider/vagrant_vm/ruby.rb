@@ -29,6 +29,22 @@ Puppet::Type.type(:vagrant_vm).provide(:vagrant_vm, :parent => Puppet::Provider)
     @property_flush[:box] = value
   end
 
+  def puppet_master=(value)
+    @property_flush[:puppet_master] = value
+  end
+
+  def pp_role=(value)
+    @property_flush[:pp_role] = value
+  end
+
+  def challenge_password=(value)
+    @property_flush[:challenge_password] = value
+  end
+
+  def certname=(value)
+    @property_flush[:certname] = value
+  end
+
   def synced_folder=(value)
     @property_flush[:synced_folder] = value
   end
@@ -78,6 +94,10 @@ Puppet::Type.type(:vagrant_vm).provide(:vagrant_vm, :parent => Puppet::Provider)
       @resource[:cpu],
       @resource[:user],
       @resource[:ip],
+      @resource[:puppet_master],
+      @resource[:pp_role],
+      @resource[:challenge_password],
+      @resource[:certname],
     )
   end
 
@@ -104,6 +124,10 @@ Puppet::Type.type(:vagrant_vm).provide(:vagrant_vm, :parent => Puppet::Provider)
     # what it is?
     i = PuppetX::PuppetVagrant::Instance.new(
       @resource[:name],
+      false,
+      false,
+      false,
+      false,
       false,
       false,
       false,
@@ -139,13 +163,18 @@ Puppet::Type.type(:vagrant_vm).provide(:vagrant_vm, :parent => Puppet::Provider)
 
 puts "ensure #{v['ensure']}"
         new(:name => k,
-          :ensure        => v["ensure"],
-          :box           => v["box"],
-          :provision     => v["provision"],
-          :synced_folder => v["synced_folder"],
-          :memory        => v["memory"],
-          :cpu           => v["cpu"],
-          :ip            => v["ip"]
+          :ensure             => v["ensure"],
+          :box                => v["box"],
+          :provision          => v["provision"],
+          :synced_folder      => v["synced_folder"],
+          :memory             => v["memory"],
+          :cpu                => v["cpu"],
+          :ip                 => v["ip"],
+          :puppet_master      => v["puppet_master"],
+          :certname           => v["certname"],
+          :pp_role            => v["pp_role"],
+          :challenge_password => v["challenge_password"],
+
         )
 
     }

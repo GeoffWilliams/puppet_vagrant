@@ -57,6 +57,26 @@ Puppet::Type.newtype(:vagrant_vm) do
     newvalue(/^\S+$/)
   end
 
+  newproperty(:puppet_master) do
+    desc "fqdn of puppet master to connect this VM to, or IP address if not in DNS"
+    newvalue(/^\S+$/)
+  end
+
+  newproperty(:pp_role) do
+    desc "Trusted fact `pp_role` for this node"
+    newvalue(/^\S+$/)
+  end
+
+  newproperty(:challenge_password) do
+    desc "Challenge password to embed in the CSR when requesting access to puppet"
+    newvalue(/^\S+$/)
+  end
+
+  newproperty(:certname) do
+    desc "Use this certname instead of the default (fqdn)"
+    newvalue(/^\S+$/)
+  end
+
   newparam(:synced_folder) do
     desc "Array of synced folders to use"
     #defaultto(["#{vagrant_dir}/#{title}:/vagrant"])
@@ -73,7 +93,7 @@ Puppet::Type.newtype(:vagrant_vm) do
   end
 
   newproperty(:provision) do
-    desc "Provision script to run after booting VM"
+    desc "Provision script to run after booting VM (and installing puppet if requested)"
     defaultto "1"
   end
 

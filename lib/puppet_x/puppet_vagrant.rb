@@ -76,24 +76,32 @@ module PuppetX
 
       def initialize(
           name,
-          box           = false,
-          provision     = false,
-          synced_folder = false,
-          memory        = false,
-          cpu           = false,
-          user          = false,
-          ip            = false,
-          act           = true)
+          box                 = false,
+          provision           = false,
+          synced_folder       = false,
+          memory              = false,
+          cpu                 = false,
+          user                = false,
+          ip                  = false,
+          puppet_master       = false,
+          certname            = false,
+          pp_role             = false,
+          challenge_password  = false,
+          act                 = true)
 
         @user   = user
         @config = {
-          "name"           => name,
-          "box"            => box,
-          "provision"      => provision,
-          "synced_folder"  => synced_folder,
-          "memory"         => memory,
-          "cpu"            => cpu,
-          "ip"             => ip,
+          "name"                => name,
+          "box"                 => box,
+          "provision"           => provision,
+          "synced_folder"       => synced_folder,
+          "memory"              => memory,
+          "cpu"                 => cpu,
+          "ip"                  => ip,
+          "puppet_master"       => puppet_master,
+          "certname"            => certname,
+          "pp_role"             => pp_role,
+          "challenge_password"  => challenge_password,
         }
 
 

@@ -11,12 +11,26 @@ config = JSON.parse(json)
 # like when you can't use a for loop or maybe something to do with ruby variables
 # going out of scope in blocks and simple ones needing to be passed... But why
 # does everyone else's examples work?  Perhaps vagrant changed recently
+
+# puppet provisioning
+puppet_master  = config["puppet_master"]
+if puppet_master
+  challenge_password  = config['challenge_password'] ? "custom_attributes:challengePassword=#{config['challenge_password']}": ""
+  clientcert          = config['clientcert'] ? "agent:certname=#{config['clientcert']}" : ""
+  pp_role             = config['pp_role'] ? "extension_requests:pp_role=#{config['pp_role']}" : ""
+
+  puppet_provision = "curl -k https://#{puppet_master}:8140/packages/current/install.bash | sudo bash -s #{certname} #{challenge_password} #{pp_role}\n"
+else
+  puppet_provision = ""
+end
+
+# Regular vagrant settings
 config_box        = config["box"]
 config_name       = config["name"]
 config_ip         = config["ip"]
 config_memory     = config["memory"]
 config_cpu        = config["cpu"]
-config_provision  = config["provision"]
+config_provision  = puppet_provision + config["provision"]
 
 # Create boxes
 Vagrant.configure("2") do |config|
