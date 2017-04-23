@@ -16,7 +16,7 @@ config = JSON.parse(json)
 puppet_master  = config["puppet_master"]
 if puppet_master
   challenge_password  = config['challenge_password'] ? "custom_attributes:challengePassword=#{config['challenge_password']}": ""
-  clientcert          = config['clientcert'] ? "agent:certname=#{config['clientcert']}" : ""
+  certname            = config['certname'] ? "agent:certname=#{config['certname']}" : ""
   pp_role             = config['pp_role'] ? "extension_requests:pp_role=#{config['pp_role']}" : ""
 
   puppet_provision = "curl -k https://#{puppet_master}:8140/packages/current/install.bash | sudo bash -s #{certname} #{challenge_password} #{pp_role}\n"
