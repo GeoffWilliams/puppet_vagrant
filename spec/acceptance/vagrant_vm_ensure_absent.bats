@@ -1,11 +1,11 @@
 @test "vm json gone" {
-  ! test -f /var/lib/vagrant_vms/mycoolvm/Vagrantfile.json
+  ! test -f /var/lib/vagrantomatic/mycoolvm/Vagrantfile.json
 }
 
 @test "vm vagrantfile gone" {
-  ! test -f /var/lib/vagrant_vms/mycoolvm/Vagrantfile
+  ! test -f /var/lib/vagrantomatic/mycoolvm/Vagrantfile
 }
 
 @test "vm gone" {
-  ! test -d /var/lib/vagrant_vms/mycoolvm
+  ! test -d /var/lib/vagrantomatic/mycoolvm
 }

@@ -12,6 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 require 'puppet_x/puppet_vagrant'
+require 'vagrantomatic/vagrantomatic'
+
 Puppet::Type.type(:vagrant_vm).provide(:vagrant_vm, :parent => Puppet::Provider) do
   desc "vagrant_vm support"
 
@@ -23,6 +25,21 @@ Puppet::Type.type(:vagrant_vm).provide(:vagrant_vm, :parent => Puppet::Provider)
   def initialize(value={})
     super(value)
     @property_flush = {}
+  end
+
+  # static accessor - used by `instances` (puppet resource command).  Since this
+  # is normally called only once and is in a static context, don't worry about
+  # keeping a copy of vom
+  def self.vom
+    Vagrantomatic::Vagrantomatic.new
+  end
+
+  # instance accessor - used by everything else
+  def vom
+    if ! @vom
+      @vom = Vagrantomatic::Vagrantomatic.new
+    end
+    @vom
   end
 
   def box=(value)
@@ -89,21 +106,27 @@ Puppet::Type.type(:vagrant_vm).provide(:vagrant_vm, :parent => Puppet::Provider)
   # end
 
   def get_vm_instance
-    vm_instance = PuppetX::PuppetVagrant::Instance.new(
+
+    vm_instance = vom.instance(
       @resource[:name],
-      @resource[:box],
-      @resource[:provision],
-      @resource[:synced_folder],
-      @resource[:memory],
-      @resource[:cpu],
-      @resource[:user],
-      @resource[:ip],
-      @resource[:puppet_master_fqdn],
-      @resource[:puppet_master_ip],
-      @resource[:pp_role],
-      @resource[:challenge_password],
-      @resource[:certname],
+      config: {
+        "box"                => @resource[:box],
+        "provision"          => @resource[:provision],
+        "synced_folder"      => @resource[:synced_folder],
+        "memory"             => @resource[:memory],
+        "cpu"                => @resource[:cpu],
+        "user"               => @resource[:user],
+        "ip"                 => @resource[:ip],
+        "puppet_master_fqdn" => @resource[:puppet_master_fqdn],
+        "puppet_master_ip"   => @resource[:puppet_master_ip],
+        "pp_role"            => @resource[:pp_role],
+        "challenge_password" => @resource[:challenge_password],
+        "certname"           => @resource[:certname],
+      }
     )
+    
+    vm_instance.save
+    vm_instance
   end
 
   def present
@@ -111,12 +134,12 @@ Puppet::Type.type(:vagrant_vm).provide(:vagrant_vm, :parent => Puppet::Provider)
   end
 
   def refresh
-    vm_instance = PuppetX::PuppetVagrant::Instance.new(@resource[:name])
+    vm_instance = vom.instance(@resource[:name])
     vm_instance.reload
   end
 
   def absent
-    vm_instance = PuppetX::PuppetVagrant::Instance.new(@resource[:name])
+    vm_instance = vom.instance(@resource[:name])
     vm_instance.purge
   end
 
@@ -127,24 +150,25 @@ Puppet::Type.type(:vagrant_vm).provide(:vagrant_vm, :parent => Puppet::Provider)
     # :running (which maps to absent...) so we need to figure out ourselves
     # There's probably a more puppety way of doing this... does anyone know
     # what it is?
-    i = PuppetX::PuppetVagrant::Instance.new(
-      @resource[:name],
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-    )
+    # i = PuppetX::PuppetVagrant::Instance.new(
+    #   @resource[:name],
+    #   false,
+    #   false,
+    #   false,
+    #   false,
+    #   false,
+    #   false,
+    #   false,
+    #   false,
+    #   false,
+    #   false,
+    #   false,
+    #   false,
+    # )
+    instance = vom.instance(@resource[:name])
 
     status = false
-    if i.get_vm.vm(:default).state == :running
+    if instance.get_vm.vm(:default).state == :running
       status = true
     end
 
@@ -161,7 +185,7 @@ Puppet::Type.type(:vagrant_vm).provide(:vagrant_vm, :parent => Puppet::Provider)
 
   # puppet resource command (get) support
   def self.instances
-    PuppetX::PuppetVagrant::Instance.instances.collect { |k,v|
+    vom.instances_metadata.collect { |k,v|
       puts k
       puts v
 

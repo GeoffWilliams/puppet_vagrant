@@ -2,9 +2,11 @@
 #
 # Fake Vagrant for acceptance testing
 STATUS=".status"
-if [ ! -f Vagrantfile ] ; then
-  echo "No Vagrantfile!"
-  exit 1
+if "$1" != "--version" ; then
+  if [ ! -f Vagrantfile ] ; then
+    echo "No Vagrantfile!"
+    exit 1
+  fi
 fi
 case "$1" in
   status)
@@ -35,6 +37,9 @@ case "$1" in
       echo "VM not running so can't be stopped"
       exit 1
     fi
+    ;;
+  --version)
+    echo "Fake Vagrant version 1.0.0"
     ;;
   *)
     echo "invalid command"

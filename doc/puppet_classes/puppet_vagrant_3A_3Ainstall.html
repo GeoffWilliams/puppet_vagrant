@@ -119,7 +119,7 @@ this node</p>
         <span class='type'>(<tt>Any</tt>)</span>
       
       
-        <em class="default">(defaults to: <tt>&quot;https://releases.hashicorp.com/vagrant/1.9.2/vagrant_1.9.2_x86_64.rpm&quot;</tt>)</em>
+        <em class="default">(defaults to: <tt>&quot;https://releases.hashicorp.com/vagrant/1.9.5/vagrant_1.9.5_x86_64.rpm&quot;</tt>)</em>
       
       
     </li>
@@ -171,7 +171,7 @@ this node</p>
 class puppet_vagrant::install(
     $user     = &quot;vagrant&quot;,
     $group    = &quot;vagrant&quot;,
-    $package  = &quot;https://releases.hashicorp.com/vagrant/1.9.2/vagrant_1.9.2_x86_64.rpm&quot;,
+    $package  = &quot;https://releases.hashicorp.com/vagrant/1.9.5/vagrant_1.9.5_x86_64.rpm&quot;,
 ) {
   user { $user:
     ensure =&gt; present,
@@ -182,8 +182,8 @@ class puppet_vagrant::install(
   }
 
   # Gem to control vagrant, used by the type and provider
-  package { &quot;derelict&quot;:
-    ensure   =&gt; present,
+  package { &quot;vagrantomatic&quot;:
+    ensure   =&gt; &#39;0.3.3&#39;,
     provider =&gt; &quot;puppet_gem&quot;,
   }
 

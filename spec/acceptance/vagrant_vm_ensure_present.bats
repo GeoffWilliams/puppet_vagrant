@@ -1,15 +1,15 @@
 @test "vm instance dir created" {
-  test -d /var/lib/vagrant_vms/mycoolvm
+  test -d /var/lib/vagrantomatic/mycoolvm
 }
 
 @test "vagrantfile symlink created" {
-  test -h /var/lib/vagrant_vms/mycoolvm/Vagrantfile
+  test -h /var/lib/vagrantomatic/mycoolvm/Vagrantfile
 }
 
 @test "vagrantfile.json created" {
-  test -f /var/lib/vagrant_vms/mycoolvm/Vagrantfile.json
+  test -f /var/lib/vagrantomatic/mycoolvm/Vagrantfile.json
 }
 
 @test "VM should not be running" {
-  cd /var/lib/vagrant_vms/mycoolvm && vagrant status | grep saved
+  cd /var/lib/vagrantomatic/mycoolvm && vagrant status | grep saved
 }

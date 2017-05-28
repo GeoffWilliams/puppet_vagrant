@@ -5,7 +5,7 @@
 class puppet_vagrant::install(
     $user     = "vagrant",
     $group    = "vagrant",
-    $package  = "https://releases.hashicorp.com/vagrant/1.9.2/vagrant_1.9.2_x86_64.rpm",
+    $package  = "https://releases.hashicorp.com/vagrant/1.9.5/vagrant_1.9.5_x86_64.rpm",
 ) {
   user { $user:
     ensure => present,
@@ -16,8 +16,8 @@ class puppet_vagrant::install(
   }
 
   # Gem to control vagrant, used by the type and provider
-  package { "derelict":
-    ensure   => present,
+  package { "vagrantomatic":
+    ensure   => '0.3.3',
     provider => "puppet_gem",
   }
 
