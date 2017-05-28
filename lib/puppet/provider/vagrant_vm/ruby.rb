@@ -16,8 +16,8 @@ require 'vagrantomatic/vagrantomatic'
 Puppet::Type.type(:vagrant_vm).provide(:vagrant_vm, :parent => Puppet::Provider) do
   desc "vagrant_vm support"
 
-  # Only if vagrant installed
-  confine :exists => '/usr/bin/vagrant'
+  # Only if vagrantomatic libs present
+  confine feature: :vagrantomatic
 
   mk_resource_methods
 
