@@ -11,7 +11,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-require 'puppet_x/puppet_vagrant'
 require 'vagrantomatic/vagrantomatic'
 
 Puppet::Type.type(:vagrant_vm).provide(:vagrant_vm, :parent => Puppet::Provider) do
@@ -90,20 +89,6 @@ Puppet::Type.type(:vagrant_vm).provide(:vagrant_vm, :parent => Puppet::Provider)
     @property_hash[:ensure] == :present
   end
 
-  # def exists?
-  #   vm_instance = PuppetX::PuppetVagrant::Instance.new(
-  #     @resource[:name],
-  #     @resource[:box],
-  #     @resource[:provision],
-  #     @resource[:synced_folder],
-  #     @resource[:memory],
-  #     @resource[:cpu],
-  #     @resource[:user],
-  #     @resource[:ip],
-  #     false,
-  #   )
-  #   vm_instance.configured?
-  # end
 
   def get_vm_instance
 
@@ -124,7 +109,7 @@ Puppet::Type.type(:vagrant_vm).provide(:vagrant_vm, :parent => Puppet::Provider)
         "certname"           => @resource[:certname],
       }
     )
-    
+
     vm_instance.save
     vm_instance
   end
@@ -150,21 +135,6 @@ Puppet::Type.type(:vagrant_vm).provide(:vagrant_vm, :parent => Puppet::Provider)
     # :running (which maps to absent...) so we need to figure out ourselves
     # There's probably a more puppety way of doing this... does anyone know
     # what it is?
-    # i = PuppetX::PuppetVagrant::Instance.new(
-    #   @resource[:name],
-    #   false,
-    #   false,
-    #   false,
-    #   false,
-    #   false,
-    #   false,
-    #   false,
-    #   false,
-    #   false,
-    #   false,
-    #   false,
-    #   false,
-    # )
     instance = vom.instance(@resource[:name])
 
     status = false
@@ -186,29 +156,21 @@ Puppet::Type.type(:vagrant_vm).provide(:vagrant_vm, :parent => Puppet::Provider)
   # puppet resource command (get) support
   def self.instances
     vom.instances_metadata.collect { |k,v|
-      puts k
-      puts v
-
-
-puts "ensure #{v['ensure']}"
-        new(:name => k,
-          :ensure             => v["ensure"],
-          :box                => v["box"],
-          :provision          => v["provision"],
-          :synced_folder      => v["synced_folder"],
-          :memory             => v["memory"],
-          :cpu                => v["cpu"],
-          :ip                 => v["ip"],
-          :puppet_master_fqdn => v["puppet_master_fqdn"],
-          :puppet_master_ip   => v["puppet_master_ip"],
-          :certname           => v["certname"],
-          :pp_role            => v["pp_role"],
-          :challenge_password => v["challenge_password"],
-
-        )
-
+      new(:name => k,
+        :ensure             => v["ensure"],
+        :box                => v["box"],
+        :provision          => v["provision"],
+        :synced_folder      => v["synced_folder"],
+        :memory             => v["memory"],
+        :cpu                => v["cpu"],
+        :ip                 => v["ip"],
+        :puppet_master_fqdn => v["puppet_master_fqdn"],
+        :puppet_master_ip   => v["puppet_master_ip"],
+        :certname           => v["certname"],
+        :pp_role            => v["pp_role"],
+        :challenge_password => v["challenge_password"],
+      )
     }
-
   end
 
   def self.prefetch(resources)
