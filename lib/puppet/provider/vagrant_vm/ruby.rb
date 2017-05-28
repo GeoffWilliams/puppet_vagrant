@@ -11,7 +11,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-require 'vagrantomatic/vagrantomatic'
 
 Puppet::Type.type(:vagrant_vm).provide(:vagrant_vm, :parent => Puppet::Provider) do
   desc "vagrant_vm support"
@@ -30,11 +29,13 @@ Puppet::Type.type(:vagrant_vm).provide(:vagrant_vm, :parent => Puppet::Provider)
   # is normally called only once and is in a static context, don't worry about
   # keeping a copy of vom
   def self.vom
+    require 'vagrantomatic/vagrantomatic'
     Vagrantomatic::Vagrantomatic.new
   end
 
   # instance accessor - used by everything else
   def vom
+    require 'vagrantomatic/vagrantomatic'
     if ! @vom
       @vom = Vagrantomatic::Vagrantomatic.new
     end
