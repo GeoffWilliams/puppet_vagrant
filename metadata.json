@@ -1,6 +1,6 @@
 {
   "name": "declarativesystems/puppet_vagrant",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "author": "declarativesystems",
   "summary": "Puppet type and provider to manage vagrant",
   "license": "Apache-2.0",
